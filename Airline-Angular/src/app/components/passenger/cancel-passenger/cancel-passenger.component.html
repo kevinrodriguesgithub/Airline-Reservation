@@ -1,0 +1,38 @@
+<div class="container">
+    <form class="card 2p bg-white" #userForm="ngForm"  (ngSubmit)='PassSearch(userForm.value)'>
+    <input type="text" class="form-control" placeholder="Enter User ID" name="user_id" [(ngModel)]="user_id">
+</form>
+</div>
+    <div class="container" *ngIf="search">
+        <table class="table table-dark" style="margin-top:15px" *ngIf="passenger && passenger.length > 0  else elseBlock">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User Id</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Flight ID</th>
+                    <th></th>
+                  </tr>
+           </thead>
+           <tbody>
+            <tr *ngFor="let p of passenger">
+                <td> {{p.id}} </td>
+                <td> {{p.user_id}} </td>
+                <td>  {{p.name}} </td>
+                <td> {{p.date_of_birth}}</td>
+                <td>  {{p.gender}} </td>
+                <td>  {{p.flight_id}} </td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)=delete(p)><p class="fa fa-trash" aria-hidden="true"></p></button>
+                </td>         
+            </tr>
+        </tbody>
+        </table>
+        <ng-template #elseBlock>
+            <h4 align="center"> There are no Tickets booked  with this User Id </h4>
+        </ng-template>
+         <button class="btn btn-primary"  (click)="refill()">Back</button>
+        </div>
+ 

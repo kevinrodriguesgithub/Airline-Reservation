@@ -1,0 +1,87 @@
+
+<div style="text-align: center;">
+  <h1>{{message}}</h1>
+</div>
+
+<div class="image" >
+    <div class="container text-center" >
+    <!-- Registration Form   (ngSubmit) = "onSubmit()"-->
+    <form  class="text-center border border-dark p-5" style="width: 50%; display: inline-block; vertical-align: middle;">
+    
+      <p class="h2 mb-4">Registration</p>
+    
+        <div class="form-group ">
+          <label for="exampleFormControlSelect1" class="col-sm2"></label>
+          
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>Select title</option>
+            <option>Mr</option>
+            <option>Mrs</option>
+            <option>Ms</option>
+          </select>
+        </div>
+    
+        <div class="form-row mb-4">
+        <div class="col">
+          <!-- First name -->
+          <input type="text" name="first_name" id="first_name" class="form-control" [(ngModel)]="user.first_name" placeholder="First name">
+        </div>
+      
+        <div class="col">
+          <!-- Last name -->
+          <input type="text" name="last_name" id="last_name" class="form-control" [(ngModel)]="user.last_name" placeholder="Last name">
+        </div>
+      </div>
+    
+      <!-- E-mail -->
+      <input type="email" name="email" id="email" class="form-control mb-4" [(ngModel)]="user.email" placeholder="E-mail">
+    
+      <!-- Password -->
+      <input type="password" name="pwd" id="pwd" class="form-control" [(ngModel)]="user.pwd" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+      <br/>
+    <!--
+      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Confirm Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+      <br/> -->
+      <!-- <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+        At least 8 characters and 1 digit
+      </small>    -->
+    
+    <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" [(ngModel)]="user.date_of_birth" placeholder="Enter date of birth" />
+  
+    
+    <br/>  
+
+    <div class="form-group ">
+     
+    <select  class="form-control" name="gender" id="gender" [(ngModel)] = "user.gender">
+      <option [selected]="true">Select your Gender</option>
+      <option>male</option>
+      <option>female</option>
+    </select> 
+  </div>
+ <!--
+    <input type="text" name="gender" id="gender" class="form-control" [(ngModel)]="user.gender" placeholder="Enter gender" /><br/>
+  -->
+      <!-- Phone number -->
+      <input type="text" name="contact" id="contact" class="form-control " [(ngModel)]="user.contact" placeholder="Phone number" >
+     
+    <!--
+      <input type="text" name="role" value="user" id="userRole" class="form-control" [(ngModel)]="user.role" placeholder="Enter role" /><br/>
+    -->
+      <!-- Sign up button -->    <!-- Should store in users table -->
+
+      <br/>
+      <button mdbBtn color="color" block="true" class="btn btn-success btn-lg " type="submit" (click)="registerNow()" >Sign up</button>
+      
+      <hr>
+    
+      <!-- Terms of service -->
+      <p>
+        Already have an account ?
+        <a style="color:maroon;" href="" target="_blank"><strong>Login</strong></a></p>
+    
+    </form>
+    <!-- Default form register -->
+    </div>
+    
+    </div>

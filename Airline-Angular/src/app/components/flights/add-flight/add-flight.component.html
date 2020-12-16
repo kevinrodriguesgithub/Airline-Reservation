@@ -1,0 +1,92 @@
+<head>
+<style> 
+   input[type=text] {
+     width: 90%;
+     }
+
+    input[type=submit] {
+         width: 40%;
+         align-self: center;
+         }
+    
+   </style>
+</head>
+
+<div *ngIf="admin" class="container ">
+
+  <form class='card p-3 bg-light' #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value);userForm.reset()'>
+    
+     <div class="form-group"> 
+         <label>Flight Number</label>
+         <input required minlength="1" type="text" #flightIdRef='ngModel' name="id" ngModel class="form-control ">
+         <div *ngIf='flightIdRef.errors && flightIdRef.touched' class="alert alert-danger">
+             <div [hidden]="!flightIdRef.errors.required">Provide Flight Id
+             </div>
+          </div>
+        </div> 
+        <div class="form-group">   
+          <label>Flight Name</label>
+          <input required minlength="3" type="text" #flightNameRef='ngModel' name="name" ngModel class="form-control ">
+          <div *ngIf='flightNameRef.errors && flightNameRef.touched' class="alert alert-danger">
+              <div [hidden]="!flightNameRef.errors.required">Provide Flight Name
+              </div>
+           </div>
+         </div>
+        <div class="form-group">   
+         <label>From</label>
+         <input required minlength="3" type="text" #flightFromRef='ngModel' name="from_loc" ngModel class="form-control ">
+         <div *ngIf='flightFromRef.errors && flightFromRef.touched' class="alert alert-danger">
+             <div [hidden]="!flightFromRef.errors.required">Provide Flight Source
+             </div>
+          </div>
+        </div>
+        <div class="form-group">   
+            <label>To</label>
+            <input required minlength="3" type="text" #flightToRef='ngModel' name="to_loc" ngModel class="form-control ">
+            <div *ngIf='flightToRef.errors && flightToRef.touched' class="alert alert-danger">
+                <div [hidden]="!flightToRef.errors.required">Provide Flight Destination
+                </div>
+             </div>
+           </div>
+           <div class="form-group">   
+            <label>Departure</label>
+            <input required  type="text" #flightDepartRef='ngModel' name="depart" ngModel class="form-control ">
+            <div *ngIf='flightDepartRef.errors && flightDepartRef.touched' class="alert alert-danger">
+                <div [hidden]="!flightDepartRef.errors.required">Provide Departure  Time
+                </div>
+             </div>
+           </div>
+           <div class="form-group">   
+            <label>Arrival</label>
+            <input required  type="text" #flightArriveRef='ngModel' name="arrive" ngModel class="form-control ">
+            <div *ngIf='flightArriveRef.errors && flightArriveRef.touched' class="alert alert-danger">
+                <div [hidden]="!flightArriveRef.errors.required">Provide Arrival Time
+                </div>
+             </div>
+           </div>
+           <div class="form-group">   
+            <label>Price</label>
+            <input required  type="text" #flightPriceRef='ngModel' name="base_price" ngModel class="form-control">
+            <div *ngIf='flightPriceRef.errors && flightPriceRef.touched' class="alert alert-danger">
+                <div [hidden]="!flightPriceRef.errors.required">Please Enter Price 
+                </div>
+             </div>
+           </div>
+           
+           <div class="form-group">   
+            <label>Duration</label>
+            <input  required  type="text"  #flightDurationRef='ngModel' name="duration" ngModel class="form-control mb-2 mr-sm-2">
+            <div *ngIf='flightDurationRef.errors && flightDurationRef.touched' class="alert alert-danger">
+                <div [hidden]="!flightDurationRef.errors.required">Please Enter Journey Duration
+                </div>
+             </div>
+           </div>
+          
+           <input [disabled]="userForm.invalid" type="submit" value="Add Flight" class="btn btn-primary">
+     
+  </form>
+
+</div> 
+<div *ngIf="user">
+  <h1>Please login as admin or contact your administrator</h1>
+</div>

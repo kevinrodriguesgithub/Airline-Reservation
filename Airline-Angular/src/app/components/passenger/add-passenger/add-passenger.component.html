@@ -1,0 +1,81 @@
+<head>
+    <style> 
+       input[type=text] {
+         width: 90%;
+          }
+        input[type=date] {
+         width: 90%;
+         }
+         select{
+            width: 90%;
+            
+         }
+         input[type=submit] {
+         width: 40%;
+         align-self: center;
+         }
+       </style>
+    </head>
+    
+    <div class="container">
+     
+      <h2> <span class="text-success"> {{message}}</span> </h2>
+     
+     <form class = 'card p-3 bg-light' #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value); userForm.reset()'>
+    
+         
+        <div class="form-group"> 
+             <label>User Id</label>
+             <input required minlength="1" type="text" #userIdRef='ngModel' name="user_id" ngModel class="form-control ">
+             <div *ngIf='userIdRef.errors && userIdRef.touched' class="alert alert-danger">
+                 <div [hidden]="!userIdRef.errors.required">Provide User Id
+                 </div>
+              </div>
+            </div> 
+           
+            <div class="form-group">   
+              <label>Passenger Name</label>
+              <input required minlength="3" type="text" #userNameRef='ngModel' name="name" ngModel class="form-control ">
+              <div *ngIf='userNameRef.errors && userNameRef.touched' class="alert alert-danger">
+                  <div [hidden]="!userNameRef.errors.required">Provide Passenger Name
+                  </div>
+               </div>
+             </div>
+            
+             <div class="form-group">   
+             <label>Date of Birth </label>
+             <input  type="date" #userDobRef='ngModel' name="date_of_birth" ngModel class="form-control ">
+             <div *ngIf='userDobRef.errors && userDobRef.touched' class="alert alert-danger">
+                 <div [hidden]="!userDobRef.errors.required">Provide Date of birth 
+                 </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Gender </label>
+                <select class="custom-select" required name="gender"  ngModel class="form-control ">
+                  
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>                
+                </select>
+                <div class="invalid-feedback">Please select Gender
+                </div>
+              </div>
+              
+              <div class="form-group"> 
+                <label>Flight Id</label>
+                <input required minlength="1" type="text" #flyIdRef='ngModel' name="flight_id" ngModel class="form-control ">
+                <div *ngIf='flyIdRef.errors && flyIdRef.touched' class="alert alert-danger">
+                    <div [hidden]="!flyIdRef.errors.required">Provide Flight Id
+                    </div>
+                 </div>
+               </div>    
+              
+
+               <input [disabled]="userForm.invalid && btn!=true" type="submit" value="Add Passenger"  id = "submit" class="btn btn-primary" >
+              
+         
+      </form>
+   
+    </div> 
+    

@@ -1,0 +1,12 @@
+.image{
+    height:40em; background-size:cover; width:auto;
+     background-image:url('C:\Users\Kevin\OneDrive\Desktop\Kevin\Project_gladiator\flight.jpg');
+     background-position:50% 50%;
+     background-repeat: inherit;
+     background-size: cover;
+     
+     height: 100%;
+
+     /* Center and scale the image nicely */
+   
+}

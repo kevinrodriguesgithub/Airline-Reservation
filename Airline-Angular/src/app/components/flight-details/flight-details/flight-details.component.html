@@ -1,0 +1,38 @@
+
+<div style="padding-top: 150px;" id="byFId" *ngIf="param == 'flightDetByFId'">
+<h3>Search Flight by ID</h3>
+<input type="search" [(ngModel)]="search">
+<input type="button" value="Display Flight" (click)="getFlightById(search)">
+
+<table class="table table-striped table-bordered">
+    <tbody>         
+        <tr *ngFor="let flightDetObj of flightDetObj">
+          <td> {{flightDetObj.id}} </td>
+          <!-- <td> {{ flightDetObj.user_id}} </td>
+          <td> {{ flightDetObj.flight_id}} </td> -->
+          <td> {{ flightDetObj.booking_date}} </td>
+          <td> {{ flightDetObj.ticket}} </td>
+          <td>{{ flightDetObj.journey_type}} </td>
+          <td>{{ flightDetObj.seat_no}} </td>
+          </tr>
+          </tbody>
+</table>
+</div>
+
+<div style="padding-top: 150px;" id="byTicket" *ngIf="param == 'flightDetByTicket'">
+<input type="search" [(ngModel)]="ticket">
+<input type="button" value="Display Flight by ticket" (click)="getFlightDetailsByTicket(ticket)">
+<table class="table table-striped table-bordered">
+  <tbody>         
+      <tr *ngFor="let flightDetObj of flightDetObj">
+        <td> {{flightDetObj.id}} </td>
+        <!-- <td> {{ flightDetObj.user_id}} </td>
+        <td> {{ flightDetObj.flight_id}} </td> -->
+        <td> {{ flightDetObj.booking_date}} </td>
+        <td> {{ flightDetObj.ticket}} </td>
+        <td>{{ flightDetObj.journey_type}} </td>
+        <td>{{ flightDetObj.seat_no}} </td>
+        </tr>
+        </tbody>
+</table>
+</div>

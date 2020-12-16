@@ -1,0 +1,45 @@
+<p>Flights</p>
+
+<!-- <h1>{{admin}}</h1> -->
+<div *ngIf="user" class="panel-heading">
+
+<div class="panel-body">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Flight Name</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Arrival</th>
+        <th>Departure</th>
+        <th>Base Price</th>
+        <th>Duration</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- {{flightList}} -->
+      <tr *ngFor="let e of flightList">
+        <td id="flightid">{{e.id}}</td>
+        <td>{{e.name}}</td>
+        <td>{{e.from_loc}}</td>
+        <td>{{e.to_loc}} </td>
+        <td>{{e.depart}} </td>
+        <td>{{e.arrive}} </td>
+        <td>{{e.base_price}} </td>
+        <td>{{e.duration}} </td>
+        <td><a (click)="redirectToPassenger(e.id)" class="btn btn-primary">Book Flight</a> </td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+<!-- <div class="col-sm-12 text-right">
+  <a routerLink="/addFlight" class="btn btn-primary">Add Flight</a>
+</div> -->
+  
+</div>
+<div *ngIf="admin">
+  <h1>Please login as admin or contact your administrator</h1>
+</div>
